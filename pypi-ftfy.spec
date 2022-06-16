@@ -4,13 +4,14 @@
 #
 Name     : pypi-ftfy
 Version  : 6.1.1
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/97/16/79c6e17bd3465f6498282dd23813846c68cd0989fe60bfef68bb1918d041/ftfy-6.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/97/16/79c6e17bd3465f6498282dd23813846c68cd0989fe60bfef68bb1918d041/ftfy-6.1.1.tar.gz
 Summary  : Fixes mojibake and other problems with Unicode, after the fact
 Group    : Development/Tools
 License  : MIT
 Requires: pypi-ftfy-bin = %{version}-%{release}
+Requires: pypi-ftfy-license = %{version}-%{release}
 Requires: pypi-ftfy-python = %{version}-%{release}
 Requires: pypi-ftfy-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -24,9 +25,18 @@ BuildRequires : pypi(poetry_core)
 %package bin
 Summary: bin components for the pypi-ftfy package.
 Group: Binaries
+Requires: pypi-ftfy-license = %{version}-%{release}
 
 %description bin
 bin components for the pypi-ftfy package.
+
+
+%package license
+Summary: license components for the pypi-ftfy package.
+Group: Default
+
+%description license
+license components for the pypi-ftfy package.
 
 
 %package python
@@ -61,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1655398432
+export SOURCE_DATE_EPOCH=1655399657
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -85,6 +95,8 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-ftfy
+cp %{_builddir}/ftfy-6.1.1/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-ftfy/40b1ab35454e0324b65e18319bcbd0c2ed568090
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -97,6 +109,9 @@ export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
 pip install --root=%{buildroot}-v3 --no-deps --ignore-installed dist/*.whl
 popd
+## Remove excluded files
+rm -f %{buildroot}*/usr/lib/python3.10/site-packages/CHANGELOG.md
+rm -f %{buildroot}*/usr/lib/python3.10/site-packages/README.md
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
@@ -105,6 +120,10 @@ popd
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/ftfy
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-ftfy/40b1ab35454e0324b65e18319bcbd0c2ed568090
 
 %files python
 %defattr(-,root,root,-)
