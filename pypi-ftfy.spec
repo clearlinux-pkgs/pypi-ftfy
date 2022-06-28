@@ -4,7 +4,7 @@
 #
 Name     : pypi-ftfy
 Version  : 6.1.1
-Release  : 2
+Release  : 3
 URL      : https://files.pythonhosted.org/packages/97/16/79c6e17bd3465f6498282dd23813846c68cd0989fe60bfef68bb1918d041/ftfy-6.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/97/16/79c6e17bd3465f6498282dd23813846c68cd0989fe60bfef68bb1918d041/ftfy-6.1.1.tar.gz
 Summary  : Fixes mojibake and other problems with Unicode, after the fact
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1655399657
+export SOURCE_DATE_EPOCH=1656377544
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -112,7 +112,7 @@ popd
 ## Remove excluded files
 rm -f %{buildroot}*/usr/lib/python3.10/site-packages/CHANGELOG.md
 rm -f %{buildroot}*/usr/lib/python3.10/site-packages/README.md
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
