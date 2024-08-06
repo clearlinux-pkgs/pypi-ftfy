@@ -1,5 +1,5 @@
 PKG_NAME := pypi-ftfy
-URL = https://files.pythonhosted.org/packages/a8/cf/b53c42f47090525740b30007a1f53e61088109a5d7eae8e41c8398a7ba7a/ftfy-6.2.0.tar.gz
+URL = https://files.pythonhosted.org/packages/da/a9/59f4354257e8350a25be1774021991fb3a99a2fb87d0c1f367592548aed3/ftfy-6.2.3.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
