@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : pypi-ftfy
-Version  : 6.3.0
-Release  : 21
-URL      : https://files.pythonhosted.org/packages/85/c3/63753eca4c5257ce0561cb5f8e9cd0d45d97848c73c56e33a0a764319e5b/ftfy-6.3.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/85/c3/63753eca4c5257ce0561cb5f8e9cd0d45d97848c73c56e33a0a764319e5b/ftfy-6.3.0.tar.gz
+Version  : 6.3.1
+Release  : 22
+URL      : https://files.pythonhosted.org/packages/a5/d3/8650919bc3c7c6e90ee3fa7fd618bf373cbbe55dff043bd67353dbb20cd8/ftfy-6.3.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/a5/d3/8650919bc3c7c6e90ee3fa7fd618bf373cbbe55dff043bd67353dbb20cd8/ftfy-6.3.1.tar.gz
 Summary  : Fixes mojibake and other problems with Unicode, after the fact
 Group    : Development/Tools
 License  : Apache-2.0
@@ -71,10 +71,10 @@ python3 components for the pypi-ftfy package.
 
 
 %prep
-%setup -q -n ftfy-6.3.0
-cd %{_builddir}/ftfy-6.3.0
+%setup -q -n ftfy-6.3.1
+cd %{_builddir}/ftfy-6.3.1
 pushd ..
-cp -a ftfy-6.3.0 buildavx2
+cp -a ftfy-6.3.1 buildavx2
 popd
 
 %build
@@ -82,7 +82,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1728667611
+export SOURCE_DATE_EPOCH=1730130403
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
