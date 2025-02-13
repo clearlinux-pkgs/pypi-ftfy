@@ -7,7 +7,7 @@
 #
 Name     : pypi-ftfy
 Version  : 6.3.1
-Release  : 22
+Release  : 23
 URL      : https://files.pythonhosted.org/packages/a5/d3/8650919bc3c7c6e90ee3fa7fd618bf373cbbe55dff043bd67353dbb20cd8/ftfy-6.3.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a5/d3/8650919bc3c7c6e90ee3fa7fd618bf373cbbe55dff043bd67353dbb20cd8/ftfy-6.3.1.tar.gz
 Summary  : Fixes mojibake and other problems with Unicode, after the fact
